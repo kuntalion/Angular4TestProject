@@ -1,0 +1,11 @@
+<p-dataTable [value]="tasks" selectionMode="multiple" [(selection)]="selectedTasks" dataKey="title" sortMode="multiple">
+    <p-header>Multiple Selection</p-header>
+    <p-column field="title" header="Title" [sortable]="true"></p-column>
+    <p-column field="start" header="Start" [sortable]="true"></p-column>
+    <p-column field="end" header="End" [sortable]="true"></p-column>
+    <p-footer>
+        <ul>
+            <li *ngFor="let task of selectedTasks" style="text-align: left">{{task.title + ' - ' + task.start + ' - ' + task.end}}</li>
+        </ul>
+    </p-footer>
+</p-dataTable>
