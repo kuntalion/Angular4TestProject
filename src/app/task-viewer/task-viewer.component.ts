@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { tasks } from './task-viewer.data';
+import { tasks, Task } from './task-viewer.data';
+import { TaskViewerService } from './task-viewer.service';
 
 @Component({
   selector: 'app-task-viewer',
   templateUrl: './task-viewer.component.html',
-  styleUrls: ['./task-viewer.component.css']
+  styleUrls: ['./task-viewer.component.css'],
+  providers: [TaskViewerService]
 })
 export class TaskViewerComponent implements OnInit {
 
+  constructor(private taskViewerService: TaskViewerService) { }
+
   msgs: any[];
 
-  tasks: any[];
+  tasks: Task[];
 
   selectedCars: any[];
 
-  constructor() { }
-
   ngOnInit() {
     // this.carService.getCarsSmall().then(cars => this.cars = cars);
+    // this.taskViewerService.getTasks().then(tasks => this.tasks = tasks);
     this.tasks = tasks;
   }
 

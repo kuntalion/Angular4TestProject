@@ -1,0 +1,5 @@
+tr.ui-state-highlight .ui-widget-content{
+    color:lightgray!important;
+    background: lightgray!important;
+    border-color: lightgray!important;
+}

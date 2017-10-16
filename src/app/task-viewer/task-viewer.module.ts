@@ -5,19 +5,15 @@ import { TaskViewerComponent } from './task-viewer.component';
 import { FormsModule } from '@angular/forms';
 
 import { DataTableModule } from 'primeng/primeng';
-// import { DialogModule } from 'primeng/primeng';
-// import { InputTextModule } from 'primeng/primeng';
-// import { CheckboxModule } from 'primeng/primeng';
-// import { ButtonModule } from 'primeng/primeng';
-// import { CalendarModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpModule, Response } from '@angular/http';
 import { MenuItem } from 'primeng/primeng';            //api
 
 @NgModule({
   imports: [
     CommonModule,
-    DataTableModule
+    DataTableModule,
+    HttpModule
   ],
   declarations: [TaskViewerComponent],
   exports: [TaskViewerComponent]
