@@ -15,15 +15,24 @@ export class TaskViewerComponent implements OnInit {
   msgs: any[];
 
   tasks: Task[];
+  frequency: any[];
 
   selectedCars: any[];
 
   ngOnInit() {
-    // this.carService.getCarsSmall().then(cars => this.cars = cars);
-    // this.taskViewerService.getTasks().then(tasks => this.tasks = tasks);
-    this.tasks = tasks;
+    this.taskViewerService.getTasks().subscribe(tasks  => 
+      this.tasks = tasks
+    );
+    this.frequency = [];
+    this.frequency.push({label: 'All', value: null});
+    this.frequency.push({label: 'Minutely', value: 0});
+    this.frequency.push({label: 'Hourly', value: '1'});
+    this.frequency.push({label: 'Daily', value: '2'});
+    this.frequency.push({label: 'Weekly', value: '3'});
+    this.frequency.push({label: 'Monthly', value: '4'});
   }
 
+  
   onRowSelect(event) {
     this.msgs = [];
     this.msgs.push({ severity: 'info', summary: 'Car Selected', detail: event.data.vin + ' - ' + event.data.brand });

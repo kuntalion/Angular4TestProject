@@ -8,12 +8,15 @@ import { DataTableModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule, Response } from '@angular/http';
 import { MenuItem } from 'primeng/primeng';            //api
+import { HttpClientModule } from "@angular/common/http";
+import {DropdownModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
     CommonModule,
     DataTableModule,
-    HttpModule
+    HttpClientModule,
+    DropdownModule
   ],
   declarations: [TaskViewerComponent],
   exports: [TaskViewerComponent]

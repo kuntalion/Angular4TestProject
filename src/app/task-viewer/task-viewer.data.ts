@@ -1,10 +1,9 @@
 export interface Task {
-    TaskGuid;
+    Frequency;
     Name;
-    LastRunAt;
-    Description;
+    LastRunDate;
+    Type;
 }
-
 
 export var tasks = [
     {

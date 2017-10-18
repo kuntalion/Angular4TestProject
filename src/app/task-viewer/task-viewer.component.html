@@ -1,4 +1,4 @@
-<p-dataTable [value]="tasks" selectionMode="multiple" [(selection)]="selectedTasks" dataKey="TaskGuid" sortMode="multiple"
+<p-dataTable [value]="tasks" selectionMode="multiple" [(selection)]="selectedTasks" dataKey="Name" sortMode="multiple"
     [rows]="10" [paginator]="true" #dt exportFilename="tasks">
     <p-header>
         <div class="ui-helper-clearfix">
@@ -20,15 +20,21 @@
         </ng-template>
     </p-column>
     <p-column field="Name" header="Name" [sortable]="true" [filter]="true" filterMatchMode="contains"></p-column>
-    <p-column field="Description" header="Description" [sortable]="true" [filter]="true" filterMatchMode="contains"></p-column>
-    <p-column field="LastRunAt" header="Last Run At" [sortable]="true" [filter]="true" filterMatchMode="contains">
+    <!-- <p-column field="Frequency" header="Frequency" [sortable]="true" [filter]="true" filterMatchMode="contains"></p-column> -->
+    <p-column field="Frequency" header="Frequency" [filter]="true" filterMatchMode="equals" >
+        <ng-template pTemplate="filter" let-col>
+            <p-dropdown [options]="frequency" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)" styleClass="ui-column-filter"></p-dropdown>
+        </ng-template>
+    </p-column>
+    <p-column field="Type" header="Type" [sortable]="true" [filter]="true" filterMatchMode="contains"></p-column>
+    <p-column field="LastRunDate" header="Last Run At" [sortable]="true" [filter]="true" filterMatchMode="contains">
         <ng-template let-col let-task="rowData" pTemplate="body">
             <span>{{task[col.field] | date: 'short'}}</span>
         </ng-template>
     </p-column>
     <p-footer>
         <ul>
-            <li *ngFor="let task of selectedTasks" style="text-align: left">{{task.Name + ' - ' + task.Description + ' - ' + task.LastRunAt}}</li>
+            <li *ngFor="let task of selectedTasks" style="text-align: left">{{task.Name + ' - ' + task.Type}}</li>
         </ul>
     </p-footer>
 </p-dataTable>
