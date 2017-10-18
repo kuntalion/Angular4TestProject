@@ -12,7 +12,7 @@ export class TaskViewerService {
   constructor(private http: HttpClient) { }
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>('http://10.125.34.113/StrataServices/TaskService.svc/gettasks').map(this.extractData);
+    return this.http.get<Task[]>('.../TaskService.svc/gettasks').map(this.extractData);
   }
 
   private extractData(res: Task[]) {
